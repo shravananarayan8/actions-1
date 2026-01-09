@@ -1,21 +1,23 @@
+
 name: Generate ASCII ARTWORK
 
-on: push
+on:
+  push:
 
 jobs:
   ascii_job:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: List Repo Files
-        run: ls -ltra
-
-      - name: Executing Shell Script
+      - name: Show working directory and files
         run: |
-          chmod +x ./ascii-script.sh
+          pwd
+          ls -al
+
+      - name: Run ascii-script.sh from repo root
+        run: |
+          chmod +x ascii-script.sh
           ./ascii-script.sh
-
-
-
